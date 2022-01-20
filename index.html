@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dischi</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <header class="ps-3">
+        <img src="img/spotify-logo.png" alt="Spotify">
+    </header>
+
+    <main>
+        <section id="albums-list" class="container" v-if="fineCaricamento == true">
+            <div class="album_container" v-for="(album, index) in albums" :key="index">
+                <div class="album text-center p-3">
+                    <img :src="info.poster" :alt="info.title">
+                    <h4 class="my-4">{{info.title}}</h4>
+                    <p>{{info.author}}</p>
+                    <p>{{info.year}}</p>
+                </div>
+            </div>
+        </section>
+        <section id="albums-list" class="container" v-else>
+        
+            <div class="caricamento">
+                <div class="loader"></div>
+                <h3>Loading...</h3>
+            </div>
+        
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
